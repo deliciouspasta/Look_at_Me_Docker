@@ -4,9 +4,9 @@ RUN apk add --update &&  apk add git && apk add bash
 
 RUN mkdir -p /frontend/app
 
-WORKDIR /frontend/app
+WORKDIR /frontend/app/look_front
 
-RUN npm install -g @vue/cli
+# RUN npm install -g @vue/cli
 
 CMD npm run serve
 
