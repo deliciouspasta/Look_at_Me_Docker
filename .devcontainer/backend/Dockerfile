@@ -6,4 +6,4 @@ RUN mkdir -p /backend/app
 
 WORKDIR /backend/app
 
-# CMD go run main.go
+CMD go run main.go
