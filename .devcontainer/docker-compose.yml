@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+
+  backend:
+      image: go/backend:1.0
+      build: ./backend
+      container_name: backend
+      tty: true
+      env_file:
+        - backend.env
+      ports:
+        - 8888:8888
+      volumes:
+        - ../backend:/backend
+      # command: bash -c "cd /home/testuser1/dev/SNSproject && sh start.sh && /bin/bash"
+      # tty: true
+      # volumes:
+      #   - ../backend:/home/testuser1/dev
+      #   - ../backend/SNSproject/media/:/usr/local/lib/python3.9/site-packages/rest_framework/static/media
+
+
+  frontend:
+    image: vue/frontend:1.0
+    build: ./frontend
+    container_name: frontend
+    # command: bash -c "cd /app && sh start.sh && /bin/bash"
+    volumes:
+      - ../frontend:/app:cached
+    tty: true
+    ports:
+      - "8080:8080"
